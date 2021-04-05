@@ -17,11 +17,46 @@ class FenParser {
 
   get pieces() {
     return this.rows.map((row, line) => {
-      return row.split("").map((pieceStr, column) => {
+      return this.convertRow(row).split("").map((pieceStr, column) => {
         let position = new Position(line, column)
         return this.createPiece(pieceStr, position)
       })
-    }).flat().filter(piece => piece != null)
+    })
+    .flat()
+    .filter(piece => piece != null)
+  }
+
+  get player() {
+    return this.rows[8] == 'w' ? PLAYER.white : PLAYER.black
+  }
+
+  get castling() {
+    return {
+      black: {
+        king: this.hasCastlingByPiece('k'),
+        queen: this.hasCastlingByPiece('q')
+      },
+      white: {
+        king: this.hasCastlingByPiece('K'),
+        queen: this.hasCastlingByPiece('Q')
+      }
+    }
+  }
+
+  get enPassantPosition() {
+    return Position.createByCoord(this.rows[10])
+  }
+
+  get halfmove() {
+    return parseInt(this.rows[11])
+  }
+
+  get fullmove() {
+    return parseInt(this.rows[12])
+  }
+
+  hasCastlingByPiece(piece) {
+    return !!this.rows[9].match(piece)
   }
 
   createPiece(pieceStr, position) {
@@ -67,6 +102,18 @@ class FenParser {
     }
 
     return piece
+  }
+
+  convertRow(row) {
+    const numbers = row.match(/\d/g)
+
+    if(numbers) {
+      numbers.forEach(numberStr =>
+        row = row.replace(numberStr, " ".repeat(parseInt(numberStr)))
+      )
+    }
+
+    return row
   }
 }
 

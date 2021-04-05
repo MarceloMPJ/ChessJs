@@ -21,7 +21,7 @@ class Bishop extends Piece {
     return moves
   }
 
-  imageUrl() {
+  get imageUrl() {
     return this.color == PLAYER.white ? './images/pieces/wb.png' : './images/pieces/bb.png'
   }
 }

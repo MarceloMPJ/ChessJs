@@ -13,7 +13,7 @@ class InitialPawn extends Piece {
     super(position, moves, color)
   }
 
-  imageUrl() {
+  get imageUrl() {
     return this.color == PLAYER.white ? './images/pieces/wp.png' : './images/pieces/bp.png'
   }
 }

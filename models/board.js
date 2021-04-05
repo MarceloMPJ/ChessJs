@@ -1,20 +1,20 @@
-const PLAYER = require('./enums/player.js')
+const FenParser = require('./fen_parser')
 
 class Board {
-  constructor(fen) {
-    this.pieces = []
-    this.player = PLAYER.white
-    this.castling_black = { queen: true, king: true }
-    this.castling_white = { queen: true, king: true }
-    this.en_passant = null
-    this.halfmove_clock = 0
-    this.fullmove_number = 0
+  constructor(fen, context, renderFunction) {
+    const fen_parser = new FenParser(fen)
 
-    this.initialize_board_by_fen(fen)
+    this.pieces            = fen_parser.pieces
+    this.player            = fen_parser.player
+    this.castling          = fen_parser.castling
+    this.enPassantPosition = fen_parser.enPassantPosition
+    this.halfmove          = fen_parser.halfmove
+    this.context           = context
+    this.renderFunction    = renderFunction
   }
 
-  initialize_board_by_fen(fen) {
-
+  render() {
+    this.renderFunction(this.context, this.pieces)
   }
 }
 

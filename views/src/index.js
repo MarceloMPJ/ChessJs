@@ -1,22 +1,11 @@
-const PLAYER = require('../../models/enums/player.js')
-const Pawn = require('../../models/pieces/pawn.js')
-const Position = require('../../models/position.js')
-const FenParser = require('../../models/fen_parser')
-
-const render = require('./render.js')
+const renderFunc = require('./render.js')
+const Board = require('../../models/board.js')
 
 const canvas = document.getElementById("board")
 const context = canvas.getContext("2d")
 
-// Create Pieces
-const fen_parser = new FenParser("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
-
-// let position_1 = new Position(1, 0)
-// let pawn_1 = new Pawn(position_1, PLAYER.black)
-
-// let position_2 = new Position(2, 1)
-// let pawn_2 = new Pawn(position_2, PLAYER.black)
+// Build Board
+const board = new Board("1r3k2/3b2pp/2p1p3/r2pPpN1/1q1P1Q2/p6P/BnP2PP1/1R2R1K1 b - - 1 26", context, renderFunc)
 
 // Render
-console.log(fen_parser.pieces)
-render(context, fen_parser.pieces)
+board.render()

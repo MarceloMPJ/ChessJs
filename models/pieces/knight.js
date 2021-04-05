@@ -23,7 +23,7 @@ class Knight extends Piece {
     return moves
   }
 
-  imageUrl() {
+  get imageUrl() {
     return this.color == PLAYER.white ? './images/pieces/wn.png' : './images/pieces/bn.png'
   }
 }

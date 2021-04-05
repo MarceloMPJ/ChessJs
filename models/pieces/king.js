@@ -23,7 +23,7 @@ class King extends Piece {
     return moves
   }
 
-  imageUrl() {
+  get imageUrl() {
     return this.color == PLAYER.white ? './images/pieces/wk.png' : './images/pieces/bk.png'
   }
 }

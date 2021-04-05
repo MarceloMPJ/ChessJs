@@ -26,7 +26,7 @@ class Queen extends Piece {
     return moves
   }
 
-  imageUrl() {
+  get imageUrl() {
     return this.color == PLAYER.white ? './images/pieces/wq.png' : './images/pieces/bq.png'
   }
 }

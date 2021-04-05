@@ -16,7 +16,7 @@ class Piece {
 
   drawImage(context) {
     const base_image = new Image()
-    base_image.src = this.imageUrl()
+    base_image.src = this.imageUrl
 
     base_image.onload = () =>
       context.drawImage(base_image, this.position.column * 100, this.position.line * 100, 100, 100)
