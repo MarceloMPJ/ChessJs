@@ -12,6 +12,8 @@ class Position {
     if(coord == '-')
       return null
 
+    coord = coord.toLowerCase()
+
     const coords = coord.split('')
 
     const column = coords[0].charCodeAt() - 'a'.charCodeAt()
@@ -22,6 +24,10 @@ class Position {
 
   get isValid() {
     (line >= 0 && line < 8) && (column >= 0 && column < 8)
+  }
+
+  isEqual(position) {
+    return position.line == this.line && position.column == this.column
   }
 }
 

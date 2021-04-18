@@ -25,6 +25,10 @@ class Piece {
   newPositions() {
     return this.moves.map(move => this.createNewPosition(move))
   }
+
+  hasSamePosition(position) {
+    return this.position.isEqual(position)
+  }
 }
 
 module.exports = Piece
