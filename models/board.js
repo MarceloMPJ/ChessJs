@@ -1,3 +1,4 @@
+const PLAYER = require('./enums/player')
 const FenParser = require('./fen_parser')
 const Position = require('./position')
 
@@ -25,15 +26,21 @@ class Board {
     let position = Position.createByCoord(coord)
 
     if(this.pieceSelected) {
-      this.pieceSelected.movesTo(position)
+      const moveSuccess = this.pieceSelected.movesTo(position)
       this.pieceSelected.selected = false
       this.pieceSelected = null
+
+      if(moveSuccess)
+        this.nextPlayer()
     } else {
       this.setPieceSelected(position)
-      console.log(this.pieceSelected)
     }
 
     this.render()
+  }
+
+  nextPlayer() {
+    this.player = (this.player == PLAYER.white) ? PLAYER.black : PLAYER.white
   }
 
   setPieceSelected(position) {

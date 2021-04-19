@@ -5,7 +5,7 @@ class Position {
   }
 
   createNewPosition(move) {
-    new Position(line + move.line, column + move.column)
+    return new Position(this.line + move.line, this.column + move.column)
   }
 
   static createByCoord(coord) {
@@ -23,7 +23,7 @@ class Position {
   }
 
   get isValid() {
-    (line >= 0 && line < 8) && (column >= 0 && column < 8)
+    return (this.line >= 0 && this.line < 8) && (this.column >= 0 && this.column < 8)
   }
 
   isEqual(position) {

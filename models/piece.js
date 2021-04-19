@@ -12,7 +12,7 @@ class Piece {
 
   get validPositions() {
     const positions = this.newPositions()
-    return positions.reduce(position => position.isValid)
+    return positions.filter(position => position.isValid)
   }
 
   drawImage(context) {
@@ -30,7 +30,7 @@ class Piece {
   }
 
   newPositions() {
-    return this.moves.map(move => this.createNewPosition(move))
+    return this.moves.map(move => this.position.createNewPosition(move))
   }
 
   hasSamePosition(position) {
@@ -38,7 +38,15 @@ class Piece {
   }
 
   movesTo(position) {
+    if(!this.isValidPosition(position))
+      return false
+
     this.position = position
+    return true
+  }
+
+  isValidPosition(position) {
+    return !!this.validPositions.filter(validPosition => validPosition.isEqual(position)).length
   }
 }
 
