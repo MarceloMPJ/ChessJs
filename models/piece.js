@@ -1,5 +1,6 @@
 class Piece {
   constructor(position, moves, color) {
+    this.selected = false
     this.position = position
     this.moves = moves
     this.color = color
@@ -18,8 +19,14 @@ class Piece {
     const base_image = new Image()
     base_image.src = this.imageUrl
 
-    base_image.onload = () =>
+    base_image.onload = () => {
+      if(this.selected) {
+        context.fillStyle = "rgba(0, 0, 0, 0.5)"
+        context.fillRect(this.position.column * 100, this.position.line * 100, 100, 100)
+      }
+
       context.drawImage(base_image, this.position.column * 100, this.position.line * 100, 100, 100)
+    }
   }
 
   newPositions() {
@@ -28,6 +35,10 @@ class Piece {
 
   hasSamePosition(position) {
     return this.position.isEqual(position)
+  }
+
+  movesTo(position) {
+    this.position = position
   }
 }
 

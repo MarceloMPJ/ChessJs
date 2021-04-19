@@ -1,6 +1,6 @@
 const PLAYER = require("./enums/player")
 
-const Pawn = require("./pieces/pawn")
+const InitialPawn = require("./pieces/initial_pawn")
 const Rook = require("./pieces/rook")
 const Knight = require("./pieces/knight")
 const Bishop = require("./pieces/bishop")
@@ -64,10 +64,10 @@ class FenParser {
 
     switch(pieceStr) {
       case 'p':
-        piece = new Pawn(position, PLAYER.black)
+        piece = new InitialPawn(position, PLAYER.black)
         break;
       case 'P':
-        piece = new Pawn(position, PLAYER.white)
+        piece = new InitialPawn(position, PLAYER.white)
         break;
       case 'r':
         piece = new Rook(position, PLAYER.black)

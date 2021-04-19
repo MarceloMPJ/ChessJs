@@ -25,16 +25,22 @@ class Board {
     let position = Position.createByCoord(coord)
 
     if(this.pieceSelected) {
-      console.log(this.pieceSelected)
+      this.pieceSelected.movesTo(position)
+      this.pieceSelected.selected = false
       this.pieceSelected = null
     } else {
       this.setPieceSelected(position)
       console.log(this.pieceSelected)
     }
+
+    this.render()
   }
 
   setPieceSelected(position) {
-    this.pieceSelected = this.pieces.find(piece => piece.hasSamePosition(position))
+    this.pieceSelected = this.pieces.find(piece => piece.color == this.player && piece.hasSamePosition(position))
+
+    if(this.pieceSelected)
+      this.pieceSelected.selected = true
   }
 }
 

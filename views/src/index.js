@@ -6,7 +6,7 @@ const canvas = document.getElementById("board")
 const context = canvas.getContext("2d")
 
 // Build Board
-const board = new Board("1r3k2/3b2pp/2p1p3/r2pPpN1/1q1P1Q2/p6P/BnP2PP1/1R2R1K1 b - - 1 26", context, renderFunc, cellInputFunc)
+const board = new Board("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", context, renderFunc, cellInputFunc)
 
 // Render
 board.render()
