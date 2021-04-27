@@ -1,0 +1,110 @@
+<head>
+  <title>
+    Chess JS
+  </title>
+  <style>
+    td {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+
+    td:hover {
+      background: rgba(0,0,0,0.2);;
+    }
+  </style>
+</head>
+<body style="background-color: #312e2b;">
+  <canvas id="board" width="800" height="800" style="float: left; position: absolute;"></canvas>
+
+  <table id="board-clickable" cellspacing="0" cellpadding="0" style="float: left; position: absolute; border: none; color: white;">
+    <tr>
+      <td data-cell="A8"></td>
+      <td data-cell="B8"></td>
+      <td data-cell="C8"></td>
+      <td data-cell="D8"></td>
+      <td data-cell="E8"></td>
+      <td data-cell="F8"></td>
+      <td data-cell="G8"></td>
+      <td data-cell="H8"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A7"></td>
+      <td data-cell="B7"></td>
+      <td data-cell="C7"></td>
+      <td data-cell="D7"></td>
+      <td data-cell="E7"></td>
+      <td data-cell="F7"></td>
+      <td data-cell="G7"></td>
+      <td data-cell="H7"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A6"></td>
+      <td data-cell="B6"></td>
+      <td data-cell="C6"></td>
+      <td data-cell="D6"></td>
+      <td data-cell="E6"></td>
+      <td data-cell="F6"></td>
+      <td data-cell="G6"></td>
+      <td data-cell="H6"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A5"></td>
+      <td data-cell="B5"></td>
+      <td data-cell="C5"></td>
+      <td data-cell="D5"></td>
+      <td data-cell="E5"></td>
+      <td data-cell="F5"></td>
+      <td data-cell="G5"></td>
+      <td data-cell="H5"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A4"></td>
+      <td data-cell="B4"></td>
+      <td data-cell="C4"></td>
+      <td data-cell="D4"></td>
+      <td data-cell="E4"></td>
+      <td data-cell="F4"></td>
+      <td data-cell="G4"></td>
+      <td data-cell="H4"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A3"></td>
+      <td data-cell="B3"></td>
+      <td data-cell="C3"></td>
+      <td data-cell="D3"></td>
+      <td data-cell="E3"></td>
+      <td data-cell="F3"></td>
+      <td data-cell="G3"></td>
+      <td data-cell="H3"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A2"></td>
+      <td data-cell="B2"></td>
+      <td data-cell="C2"></td>
+      <td data-cell="D2"></td>
+      <td data-cell="E2"></td>
+      <td data-cell="F2"></td>
+      <td data-cell="G2"></td>
+      <td data-cell="H2"></td>
+    </tr>
+
+    <tr>
+      <td data-cell="A1"></td>
+      <td data-cell="B1"></td>
+      <td data-cell="C1"></td>
+      <td data-cell="D1"></td>
+      <td data-cell="E1"></td>
+      <td data-cell="F1"></td>
+      <td data-cell="G1"></td>
+      <td data-cell="H1"></td>
+    </tr>
+  </table>
+  <script src="./bundle.js"></script>
+</body>
